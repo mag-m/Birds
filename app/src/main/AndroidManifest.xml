@@ -20,7 +20,8 @@
         </activity>
         <activity android:name=".MainActivity" />
         <activity android:name=".YourBirdsActivity" />
-        <activity android:name=".AddBirdActivity"></activity>
+        <activity android:name=".AddBirdActivity" />
+        <activity android:name=".BirdDetailActivity"></activity>
     </application>
 
 </manifest>

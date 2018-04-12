@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toolbar;
+import android.widget.AdapterView;
 
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -83,14 +84,16 @@ public class MainActivity extends AppCompatActivity {
                     observationList.add(observation);
                 }
 
-                ListView listView = findViewById(R.id.MainAllBirdsListView);
+                ListView listview = findViewById(R.id.MainAllBirdsListView);
                 adapter = new ArrayAdapter<Observation>(getBaseContext(), android.R.layout.simple_list_item_1, observationList);
-                listView.setAdapter(adapter);
+                listview.setAdapter(adapter);
 
 
             } catch (JSONException ex) {
                 Log.e("SHIT", ex.getMessage());
             }
+
+
         }
     }
 
