@@ -1,8 +1,9 @@
 package mag.birds;
 
 import java.util.Calendar;
+import java.io.Serializable;
 
-public class Observation {
+public class Observation implements Serializable {
 
         private int BirdId;
         private String Comment;

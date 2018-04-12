@@ -87,6 +87,16 @@ public class MainActivity extends AppCompatActivity {
                 ListView listview = findViewById(R.id.MainAllBirdsListView);
                 adapter = new ArrayAdapter<Observation>(getBaseContext(), android.R.layout.simple_list_item_1, observationList);
                 listview.setAdapter(adapter);
+                listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        Intent intent = new Intent(getBaseContext(),BirdDetailActivity.class);
+                        Observation observation = observationList.get((int) id);
+                        intent.putExtra("OBSERVATION", observation);
+                        startActivity(intent);
+                    }
+                });
 
 
             } catch (JSONException ex) {
