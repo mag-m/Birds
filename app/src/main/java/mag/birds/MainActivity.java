@@ -1,5 +1,6 @@
 package mag.birds;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -46,7 +47,10 @@ public class MainActivity extends AppCompatActivity {
     private final List<Observation> observationList = new ArrayList<>();
     private ArrayAdapter<Observation> adapter = null;
 
-    public void MainYourBirdsClicked(View view) {
+    public void YourBirdsOrderByNameClicked(View view) {
+    }
+
+    public void YourBirdsAddBirdClicked(View view) {
     }
 
 
@@ -129,6 +133,13 @@ public class MainActivity extends AppCompatActivity {
             return o1.getNameEnglish().compareToIgnoreCase(o2.getNameEnglish());
         }
     });
+    adapter.notifyDataSetChanged();
+    }
+
+
+    public void MainYourBirdsClicked(View view) {
+        Intent intent = new Intent(this, YourBirdsActivity.class);
+        startActivity(intent);
     }
 
 }

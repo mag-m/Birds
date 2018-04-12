@@ -125,7 +125,7 @@ public class Observation {
 
         @Override
         public String toString(){
-            return NameEnglish;
+            return NameEnglish + " " + Created.getTime();
         }
 }
 

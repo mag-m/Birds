@@ -19,7 +19,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
-        <activity android:name=".YourBirdsActivity"></activity>
+        <activity android:name=".YourBirdsActivity" />
+        <activity android:name=".AddBirdActivity"></activity>
     </application>
 
 </manifest>
