@@ -18,25 +18,28 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/MainSortByNameBtn"
+            android:id="@+id/MainOrderByNameBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Sort By Name" />
+            android:text="Order By Name"
+            android:onClick="MainOrderByNameClicked"/>
+
 
         <Button
-            android:id="@+id/MainSortByDateBtn"
+            android:id="@+id/MainOrderByDateBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Sort By Date" />
+            android:text="Order By Date" />
 
         <Button
             android:id="@+id/MainYourBirdsBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Your Birds" />
+            android:text="Your Birds"
+            android:onClick="MainYourBirdsClicked"/>
 
     </LinearLayout>
 
@@ -46,6 +49,7 @@
         android:orientation="vertical">
 
         <ListView
+            android:id="@+id/MainAllBirdsListView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:isScrollContainer="true">

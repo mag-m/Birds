@@ -125,7 +125,7 @@ public class Observation {
 
         @Override
         public String toString(){
-            return NameDanish;
+            return NameEnglish;
         }
 }
 
