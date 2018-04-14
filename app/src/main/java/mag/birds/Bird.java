@@ -1,8 +1,9 @@
 package mag.birds;
 
+import java.io.Serializable;
 import java.util.Calendar;
 
-public class Bird {
+public class Bird implements Serializable {
     private Calendar Created;
     private int Id;
     private String NameDanish;
