@@ -25,6 +25,7 @@ import java.util.Calendar;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -48,11 +49,7 @@ public class MainActivity extends AppCompatActivity {
     private final List<Observation> observationList = new ArrayList<>();
     private ArrayAdapter<Observation> adapter = null;
 
-    public void YourBirdsOrderByNameClicked(View view) {
-    }
 
-    public void YourBirdsAddBirdClicked(View view) {
-    }
 
 
     private class ReadTask extends ReadHttpTask {
@@ -119,11 +116,10 @@ public class MainActivity extends AppCompatActivity {
 
         switch (item.getItemId()){
             case R.id.toolbarLogout:
+
                 FirebaseAuth.getInstance().signOut();
                 finish();
         }
-
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -155,4 +151,17 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+
+
+    public void MainOrderByDateClicked(View view) {
+ Collections.sort(observationList, new Comparator<Observation>() {
+     @Override
+     public int compare(Observation o1, Observation o2) {
+         if (o2.getCreated() == null || o1.getCreated() == null)
+             return 0;
+         return o2.getCreated().compareTo(o1.getCreated());
+     }
+ });
+        adapter.notifyDataSetChanged();
+ }
 }

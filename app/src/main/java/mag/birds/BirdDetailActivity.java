@@ -91,7 +91,10 @@ public class BirdDetailActivity extends AppCompatActivity {
 
         if (id == android.R.id.home) ;
 
-        //stopper activity
+        FirebaseAuth.getInstance().signOut();
+        finish();
+
+
         this.finish();
 
 
