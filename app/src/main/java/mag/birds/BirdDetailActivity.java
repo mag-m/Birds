@@ -3,7 +3,12 @@ package mag.birds;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.TextView;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 import org.w3c.dom.Text;
 
@@ -16,6 +21,7 @@ public class BirdDetailActivity extends AppCompatActivity {
     private int birdId;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +32,13 @@ public class BirdDetailActivity extends AppCompatActivity {
         birdId = observation.getBirdId();
 
        // observation = (Observation) getIntent().getSerializableExtra("Observation");
+
+
+        android.support.v7.widget.Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         TextView birdIdView = findViewById(R.id.BirdDetailBirdIdTV);
         birdIdView.setText("Bird id: " + observation.getBirdId());
@@ -62,13 +75,26 @@ public class BirdDetailActivity extends AppCompatActivity {
         populationView.setText("NameEnglish: " + observation.getNameEnglish());
 
 
+    }
 
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == android.R.id.home) ;
+
+        //stopper activity
+        this.finish();
 
 
-
-
-
-
+        return super.onOptionsItemSelected(item);
     }
 }
