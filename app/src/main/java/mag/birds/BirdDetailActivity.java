@@ -21,7 +21,6 @@ public class BirdDetailActivity extends AppCompatActivity {
     private int birdId;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +30,7 @@ public class BirdDetailActivity extends AppCompatActivity {
         Observation observation = (Observation) intent.getSerializableExtra("OBSERVATION");
         birdId = observation.getBirdId();
 
-       // observation = (Observation) getIntent().getSerializableExtra("Observation");
+        // observation = (Observation) getIntent().getSerializableExtra("Observation");
 
 
         android.support.v7.widget.Toolbar toolbar = findViewById(R.id.toolbar);
@@ -87,17 +86,43 @@ public class BirdDetailActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
+
         int id = item.getItemId();
 
-        if (id == android.R.id.home) ;
+        if (id == android.R.id.home){
+            this.finish();
+        }
 
-        FirebaseAuth.getInstance().signOut();
-        finish();
+        else
 
+        switch (item.getItemId()){
+            case R.id.toolbarLogout:
 
-        this.finish();
+                FirebaseAuth.getInstance().signOut();
 
-
+                Intent intent = new Intent(this, LoginActivity.class);
+                startActivity(intent);
+                return true;
+        }
         return super.onOptionsItemSelected(item);
     }
+
+        //@Override
+        //public boolean onOptionsItemSelected(MenuItem item) {
+        // int id = item.getItemId();
+
+        // if (id == android.R.id.home) ;
+
+        // FirebaseAuth.getInstance().signOut();
+        //finish();
+//
+
+        // this.finish();
+
+
+        //return super.onOptionsItemSelected(item);
+
+
 }
+

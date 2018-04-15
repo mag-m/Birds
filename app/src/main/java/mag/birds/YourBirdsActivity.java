@@ -1,10 +1,14 @@
 package mag.birds;
 
+import android.app.ActionBar;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 public class YourBirdsActivity extends AppCompatActivity {
 
@@ -16,6 +20,7 @@ public class YourBirdsActivity extends AppCompatActivity {
         android.support.v7.widget.Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
     }
@@ -23,15 +28,26 @@ public class YourBirdsActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
+    int id = item.getItemId();
 
-        if (id == android.R.id.home);
+        if (id == android.R.id.home){
+            this.finish();
+        }
 
-        //stopper activity
-        this.finish();
+        else
 
+        switch (item.getItemId()){
+            case R.id.toolbarLogout:
 
+                FirebaseAuth.getInstance().signOut();
+
+                Intent intent = new Intent(this, LoginActivity.class);
+                startActivity(intent);
+                return true;
+
+        }
         return super.onOptionsItemSelected(item);
+
     }
 
     @Override

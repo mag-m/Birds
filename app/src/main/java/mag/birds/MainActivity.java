@@ -118,7 +118,10 @@ public class MainActivity extends AppCompatActivity {
             case R.id.toolbarLogout:
 
                 FirebaseAuth.getInstance().signOut();
-                finish();
+
+                Intent intent = new Intent(this, LoginActivity.class);
+                startActivity(intent);
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }
