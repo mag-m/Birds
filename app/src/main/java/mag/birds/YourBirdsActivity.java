@@ -44,9 +44,7 @@ public class YourBirdsActivity extends AppCompatActivity {
                 Intent intent = new Intent(this, LoginActivity.class);
                 startActivity(intent);
                 return true;
-
-
-
+                
 
         }
         return super.onOptionsItemSelected(item);
