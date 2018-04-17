@@ -34,7 +34,7 @@ public class YourBirdsActivity extends AppCompatActivity {
             this.finish();
         }
 
-        else
+         else
 
         switch (item.getItemId()){
             case R.id.toolbarLogout:
@@ -44,6 +44,9 @@ public class YourBirdsActivity extends AppCompatActivity {
                 Intent intent = new Intent(this, LoginActivity.class);
                 startActivity(intent);
                 return true;
+
+
+
 
         }
         return super.onOptionsItemSelected(item);
